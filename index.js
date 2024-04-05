@@ -57,6 +57,6 @@ app.get('/products/search/name/:name', (req, res) => {
   );
 });
 
-app.listen(process.env.port, () => {
+app.listen(process.env.port || 3000, () => {
   console.log('Server started on port 3000');
 });
