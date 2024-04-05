@@ -29,7 +29,7 @@ connection.connect((err) => {
 app.get('/products/search/id/:id', (req, res) => {
   const id = req.params.id;
   connection.query(
-    'SELECT * FROM product WHERE product_id LIKE ?',
+    'SELECT * FROM product WHERE product_id LIKE ? LIMIT 50',
     ['%' + id + '%'],
     (err, rows) => {
       if (err) {
@@ -45,7 +45,7 @@ app.get('/products/search/id/:id', (req, res) => {
 app.get('/products/search/name/:name', (req, res) => {
   const name = req.params.name;
   connection.query(
-    'SELECT * FROM product WHERE product_name LIKE ?',
+    'SELECT * FROM product WHERE product_name LIKE ? LIMIT 50',
     ['%' + name + '%'],
     (err, rows) => {
       if (err) {
